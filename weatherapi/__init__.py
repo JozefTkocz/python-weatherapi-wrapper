@@ -1,1 +1,0 @@
-from weatherapi.api.endpoint_methods import get_weather_history
