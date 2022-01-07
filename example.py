@@ -1,6 +1,6 @@
 import os
 import datetime as dt
-from weatherapi.api.endpoint_methods import get_weather_history
+from weatherapi.endpoint_methods import get_weather_history
 
 API_KEY = "YOUR_API_KEY"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
