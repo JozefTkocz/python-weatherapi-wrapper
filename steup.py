@@ -14,7 +14,7 @@ def read_requirements(requirements_file):
 
 
 setup(
-    name="an_example_pypi_project",
+    name="weather_api",
     python_requires=">3.8,<4.0",
     version="0.0.1",
     author="Jozef Tkocz",
