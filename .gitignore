@@ -116,3 +116,6 @@ dmypy.json
 # Python config
 .idea
 .idea/
+
+*.iml
+*.xml
