@@ -3,7 +3,7 @@ from typing import Union
 
 import requests
 
-from api.constants import Parameters, Endpoints
+from weatherapi.api import Parameters, Endpoints
 
 
 class APINotCalledException(Exception):

@@ -1,6 +1,6 @@
 import pandas as pd
 
-from api.constants import Headers
+from weatherapi.api import Headers
 
 
 def extract_hourly_timeseries_frame(history_result: dict) -> pd.DataFrame:
