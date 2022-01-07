@@ -20,6 +20,7 @@ setup(
     author="Jozef Tkocz",
     author_email="jozeftkocz@gmail.com",
     description=("Python wrapper for the weather API provided by https://www.weatherapi.com/"),
+    packages=['weatherapi'],
     install_requires=read_requirements('requirements.txt'),
     long_description=read('README.md')
 )
