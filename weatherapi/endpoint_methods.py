@@ -3,9 +3,9 @@ from typing import Union
 
 import pandas as pd
 
-from weatherapi.api import APICaller
+from weatherapi.api.interface import APICaller
 from weatherapi.helpers import generate_date_range_for_period
-from weatherapi.api import extract_hourly_timeseries_frame
+from weatherapi.api.parser import extract_hourly_timeseries_frame
 
 
 def get_weather_history(api_key: str, latitude: float, longitude: float, start_time: dt.datetime,
