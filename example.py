@@ -2,7 +2,7 @@ import os
 import datetime as dt
 from endpoint_methods import get_weather_history
 
-API_KEY = '2465dde64d724086a37103530220701'
+API_KEY = "YOUR_API_KEY"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 if __name__ == '__main__':
