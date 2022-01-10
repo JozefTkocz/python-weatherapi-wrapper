@@ -1,7 +1,4 @@
 import datetime as dt
-from unittest.mock import Mock
-
-import requests
 
 from weatherapi.web_api.interface import APICaller
 
