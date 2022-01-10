@@ -3,8 +3,8 @@ from typing import Union
 
 import pandas as pd
 
-from weatherapi.web_api.interface import APICaller
 from weatherapi.helpers import generate_date_range_for_period
+from weatherapi.web_api.interface import APICaller
 from weatherapi.web_api.parser import extract_hourly_timeseries_frame
 
 
