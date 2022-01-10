@@ -7,9 +7,19 @@ from pandas.testing import assert_index_equal
 from weatherapi.helpers import generate_date_range_for_period
 
 
-def test_generate_date_range_for_period_multiple_days():
+def test_generate_date_range_for_period_multiple_days_with_datetimes():
     start_date = dt.datetime(year=2022, month=1, day=1, hour=12)
     end_date = dt.datetime(year=2022, month=1, day=2, hour=5)
+
+    expected_result = pd.DatetimeIndex([pd.Timestamp(start_date).date(), pd.Timestamp(end_date).date()], freq='D')
+    actual_result = generate_date_range_for_period(start_date, end_date)
+
+    assert_index_equal(expected_result, actual_result)
+
+
+def test_generate_date_range_for_period_multiple_days_with_dates():
+    start_date = dt.datetime(year=2022, month=1, day=1)
+    end_date = dt.datetime(year=2022, month=1, day=2)
 
     expected_result = pd.DatetimeIndex([pd.Timestamp(start_date).date(), pd.Timestamp(end_date).date()], freq='D')
     actual_result = generate_date_range_for_period(start_date, end_date)

@@ -10,12 +10,8 @@ def generate_date_range_for_period(start_time: dt.datetime, end_time: Union[dt.d
 
     assert start_time <= end_time, 'start date must be before end date.'
 
-    start_date = pd.Timestamp(start_time).floor('1D')
-    end_date = pd.Timestamp(end_time).ceil('1D') - pd.to_timedelta('1D')
-
-    # If only start date is passed with no clock time, set end = start
-    if end_date < start_date:
-        end_date = start_date
+    start_date = start_time.date()
+    end_date = end_time.date()
 
     date_range = pd.date_range(start=start_date, end=end_date, freq='1D')
     return date_range
