@@ -14,7 +14,7 @@ class APICaller:
     def __init__(self, api_key):
         self.key = api_key
 
-    def get_history(self, latitude: float, longitude: float, day: dt.date, hour: Union[int, None]) -> dict:
+    def get_history(self, latitude: float, longitude: float, day: dt.date, hour: Union[int, None] = None) -> dict:
         request_parameters = self._build_parameters_dict(latitude=latitude,
                                                          longitude=longitude,
                                                          day=day,
@@ -29,7 +29,7 @@ class APICaller:
     def _build_parameters_dict(self, latitude, longitude, day, hour=None) -> dict:
         parameters = {Parameters.key: self.key,
                       Parameters.location: f'{latitude},{longitude}',
-                      Parameters.date: day}
+                      Parameters.date: day.strftime('%Y-%m-%d')}
         if hour is not None:
             parameters.update({Parameters.hour: hour})
 
