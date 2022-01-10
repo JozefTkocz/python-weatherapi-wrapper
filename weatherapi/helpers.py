@@ -1,8 +1,7 @@
 import datetime as dt
+from typing import Union
 
 import pandas as pd
-
-from typing import Union
 
 
 def generate_date_range_for_period(start_time: dt.datetime, end_time: Union[dt.datetime, None]) -> pd.DatetimeIndex:
@@ -13,6 +12,10 @@ def generate_date_range_for_period(start_time: dt.datetime, end_time: Union[dt.d
 
     start_date = pd.Timestamp(start_time).floor('1D')
     end_date = pd.Timestamp(end_time).ceil('1D') - pd.to_timedelta('1D')
+
+    # If only start date is passed with no clock time, set end = start
+    if end_date < start_date:
+        end_date = start_date
 
     date_range = pd.date_range(start=start_date, end=end_date, freq='1D')
     return date_range

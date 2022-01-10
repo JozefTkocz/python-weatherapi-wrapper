@@ -17,8 +17,19 @@ def test_generate_date_range_for_period_multiple_days():
     assert_index_equal(expected_result, actual_result)
 
 
-def test_generate_date_range_for_period_only_start_date():
+def test_generate_date_range_for_period_only_start_datetime():
     start_date = dt.datetime(year=2022, month=1, day=1, hour=12)
+    end_date = None
+
+    expected_result = pd.DatetimeIndex([pd.Timestamp(start_date).date()], freq='D')
+    actual_result = generate_date_range_for_period(start_date, end_date)
+
+    assert_index_equal(expected_result, actual_result)
+
+
+def test_generate_date_range_for_period_only_start_date():
+    # only date, no clock time information
+    start_date = dt.datetime(year=2022, month=1, day=1)
     end_date = None
 
     expected_result = pd.DatetimeIndex([pd.Timestamp(start_date).date()], freq='D')
