@@ -9,7 +9,7 @@ def extract_hourly_timeseries_frame(history_result: dict) -> pd.DataFrame:
     result = pd.DataFrame()
 
     for item in hourly_weather:
-        result = result.append(item, ignore_index=True)
+        result = pd.concat([result, pd.DataFrame.from_records([item])], ignore_index=True)
 
     result[Headers.time] = pd.to_datetime(result[Headers.time])
 
